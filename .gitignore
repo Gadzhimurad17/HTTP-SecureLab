@@ -1,1 +1,14 @@
-.vscode
+/build/
+CMake
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+*.cmake.stamp
+.vscode/
+.idea/
+*.user
+CMakeUserPresets.json
+
+*.o *.obj *.a *.so *.out
+Модульные артефакты C++20
+*.pcm *.gcm

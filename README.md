@@ -34,3 +34,11 @@ For educational purposes only. Use it only on your own systems.
 ## License
 
 GNU
+
+Goal
+Learn how HTTP works and why HTTPS is important.
+
+Warning
+For educational purposes only. Use it only on your own systems.
+
+License
