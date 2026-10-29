@@ -1,0 +1,36 @@
+{
+    "version": 8,
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 35
+    },
+    "configurePresets": [
+        {
+            "name": "HTTP-Security-Lab",
+            "displayName": "Debug (Ninja + GCC)",
+            "generator": "Ninja",
+            "binaryDir": "${sourceDir}/build/debug",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_CXX_COMPILER": "clang++-18",
+                "CMAKE_CXX_FLAGS": "-Wall -Wextra"
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "build-debug",
+            "configurePreset": "HTTP-Security-Lab",
+            "verbose": false
+        }
+    ],
+    "testPresets": [
+        {
+            "name": "test-debug",
+            "configurePreset": "HTTP-Security-Lab",
+            "output": {
+                "outputOnFailure": true
+            }
+        }
+    ]
+}
