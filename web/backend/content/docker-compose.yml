@@ -1,0 +1,28 @@
+services:
+  minio:
+    container_name: ${MINIO_CONTAINER_NAME}
+    image: ${MINIO_IMAGE}
+    ports:
+      - "${MINIO_API_PORT}:${MINIO_API_CONTAINER_PORT}"
+      - "${MINIO_CONSOLE_PORT}:${MINIO_CONSOLE_CONTAINER_PORT}"
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ACCESS_KEY}
+      MINIO_ROOT_PASSWORD: ${MINIO_SECRET_KEY}
+      MINIO_CONSOLE_ADDRESS: ":${MINIO_CONSOLE_CONTAINER_PORT}"
+    volumes:
+      - minio-data:/data
+    command: server /data --console-address ":${MINIO_CONSOLE_CONTAINER_PORT}"
+  postgres:
+    container_name: ${POSTGRES_CONTAINER_NAME}
+    image: ${POSTGRES_IMAGE}
+    ports:
+      - "${POSTGRES_HOST_PORT}:5432"
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+volumes:
+  minio-data:
+  postgres-data:
